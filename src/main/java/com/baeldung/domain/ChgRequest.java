@@ -35,6 +35,7 @@ public class ChgRequest {
         this.jira = appMetadata.getJira();
         this.environment = appMetadata.getEnvironment();
         this.releaseNotes = appMetadata.getReleaseNotes();
+        this.status = ChgRequestStatus.CREATED.name();
         createdDateTime = updatedDateTime = LocalDateTime.now(ZoneOffset.UTC);
     }
 

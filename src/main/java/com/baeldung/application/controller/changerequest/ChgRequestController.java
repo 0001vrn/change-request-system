@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.baeldung.application.request.CreateChgRequest;
 import com.baeldung.application.response.AppMetaDataResponse;
-import com.baeldung.application.response.CreateChgResponse;
 import com.baeldung.domain.ChgRequest;
 import com.baeldung.domain.service.ChgRequestService;
 
@@ -31,7 +30,7 @@ public class ChgRequestController {
     }
 
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-    List<AppMetaDataResponse> getAll() {
+    public List<AppMetaDataResponse> getAll() {
         return chgRequestService.findAll()
                 .stream()
                 .map(ChgRequest::appMetaDataResponse)
@@ -39,29 +38,27 @@ public class ChgRequestController {
     }
 
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    CreateChgResponse createInvoice(@RequestBody final CreateChgRequest createChgRequest) {
-        final UUID invoiceId = chgRequestService.createChgRequest(createChgRequest.getAppMetadata());
-
-        return new CreateChgResponse(invoiceId);
+    public UUID createInvoice(@RequestBody final CreateChgRequest createChgRequest) {
+        return chgRequestService.createChgRequest(createChgRequest.getAppMetadata());
     }
 
     @GetMapping(value = "/{id}/begin")
-    void transitionBegin(@PathVariable final UUID id) {
+    public void transitionBegin(@PathVariable final UUID id) {
         chgRequestService.beginChgRequest(id);
     }
 
     @GetMapping(value = "/{id}/done")
-    void transitionDone(@PathVariable final UUID id) {
+    public void transitionDone(@PathVariable final UUID id) {
         chgRequestService.doneChgRequest(id);
     }
 
     @GetMapping(value = "/{id}/rollback")
-    void transitionRollback(@PathVariable final UUID id) {
+    public void transitionRollback(@PathVariable final UUID id) {
         chgRequestService.rollbackChgRequest(id);
     }
 
     @GetMapping(value = "/{id}")
-    AppMetaDataResponse displayMetadata(@PathVariable final UUID id) {
+    public AppMetaDataResponse displayMetadata(@PathVariable final UUID id) {
         return chgRequestService.findById(id).appMetaDataResponse();
     }
 }

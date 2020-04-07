@@ -27,12 +27,4 @@ public class AppMetadata {
         this.environment = environment;
         this.releaseNotes = releaseNotes;
     }
-
-    public AppMetadata(final AppMetadata appMetadata) {
-        this.app = appMetadata.app;
-        this.build = appMetadata.build;
-        this.jira = appMetadata.jira;
-        this.environment = appMetadata.environment;
-        this.releaseNotes = appMetadata.releaseNotes;
-    }
 }
