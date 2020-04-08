@@ -3,13 +3,10 @@ package com.baeldung.domain.service;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.stereotype.Repository;
-
 import com.baeldung.domain.AppMetadata;
 import com.baeldung.domain.ChgRequest;
 import com.baeldung.domain.repository.ChgRequestRepository;
 
-@Repository
 public class ChgRequestServiceImpl implements ChgRequestService {
 
     private final ChgRequestRepository chgRequestRepository;
