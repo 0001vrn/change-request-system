@@ -1,4 +1,4 @@
 ## Change-Request-System
 
-[Setup guide](./src/test/resources/com/baeldung/hexagonal-crq/README.md)
+[Setup guide](./src/test/resources/com/varun/hexagonal-crq/README.md)
 
