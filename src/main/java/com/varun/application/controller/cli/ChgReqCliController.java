@@ -11,13 +11,13 @@ import com.varun.domain.AppMetadata;
 import com.varun.domain.service.ChgRequestService;
 
 @Component
-public class ChgReqController {
-    private static final Logger LOG = LoggerFactory.getLogger(ChgReqController.class);
+public class ChgReqCliController {
+    private static final Logger LOG = LoggerFactory.getLogger(ChgReqCliController.class);
 
     private final ChgRequestService chgRequestService;
 
     @Autowired
-    public ChgReqController(ChgRequestService chgRequestService) {
+    public ChgReqCliController(ChgRequestService chgRequestService) {
         this.chgRequestService = chgRequestService;
     }
 

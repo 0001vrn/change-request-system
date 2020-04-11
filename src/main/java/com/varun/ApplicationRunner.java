@@ -4,15 +4,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.varun.application.controller.cli.ChgReqController;
+import com.varun.application.controller.cli.ChgReqCliController;
 
 @SpringBootApplication
 public class ApplicationRunner implements CommandLineRunner {
 
-    public final ChgReqController chgReqController;
+    public final ChgReqCliController chgReqCliController;
 
-    public ApplicationRunner(ChgReqController chgReqController) {
-        this.chgReqController = chgReqController;
+    public ApplicationRunner(ChgReqCliController chgReqCliController) {
+        this.chgReqCliController = chgReqCliController;
     }
 
     public static void main(final String[] args) {
@@ -21,6 +21,6 @@ public class ApplicationRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        chgReqController.createChangeRequest();
+        chgReqCliController.createChangeRequest();
     }
 }
